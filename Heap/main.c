@@ -59,6 +59,7 @@ int main(void)
                  create_min_heap(heap_array, num);
                  break;
              case 2:
+                 create_max_heap(heap_array, num);
                  break;
              case 3:
                  min_heap_up_sort(heap_array, num);
@@ -68,6 +69,7 @@ int main(void)
              case 5:
                  break;
              case 6:
+                 max_heap_down_sort(heap_array, num);
                  break;
              case 7:
                  break;

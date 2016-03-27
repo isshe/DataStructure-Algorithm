@@ -131,6 +131,23 @@ int heap_destroy(int *heap_array);
 \*=====================================================================*/
 int create_min_heap(int *heap_array, int len);
 
+/*=====================================================================\
+* Function   (名称): create_max_heap()
+* Description(功能): 建立最大堆.
+* Called By  (被调): 1.
+* Call_B file(被文): 1.
+* Calls list (调用): 1.
+* Calls file (调文): 1.
+* Input      (输入): 1.
+* Output     (输出): 1.
+* Return     (返回):
+*         success  :
+*         failure  :
+* Change log (修改): 1.
+* Others     (其他): 1.
+\*=====================================================================*/
+int create_max_heap(int *heap_array, int len);
+
 
 /*=====================================================================\
 * Function   (名称): min_heap_up_sort()
@@ -151,6 +168,24 @@ int min_heap_up_sort(int *heap_array, int len);
 
 
 /*=====================================================================\
+* Function   (名称): max_heap_up_sort()
+* Description(功能): 最大堆升序排序
+* Called By  (被调): 1.
+* Call_B file(被文): 1.
+* Calls list (调用): 1.
+* Calls file (调文): 1.
+* Input      (输入): 1.
+* Output     (输出): 1.
+* Return     (返回):
+*         success  :
+*         failure  :
+* Change log (修改): 1.
+* Others     (其他): 1. 用最小堆的方法也是可以的,
+*                       不过更好的方法是把根拿下来后, 放在数组最后, 最后直接输出数组.
+\*=====================================================================*/
+int max_heap_down_sort(int *heap_array, int len);
+
+/*=====================================================================\
 * Function   (名称): delete_root_and_sort()
 * Description(功能):
 * Called By  (被调): 1. min_heap_up_sort();
@@ -167,7 +202,6 @@ int min_heap_up_sort(int *heap_array, int len);
 *                       最后一个节点换到根位置, 再调整.一直循环此过程.
 \*=====================================================================*/
 void delete_root_and_sort(int heap_array, int len);
-
 
 
 #ifdef __cplusplus
