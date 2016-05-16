@@ -47,9 +47,7 @@ int main(void)
         clean_input_buf();
          printf("1.构成最小堆\n2.构成最大堆\n"
                  "3.最小堆升序排序\n4.最大堆升序排序\n"
-                 "5.最小堆降序排序\n6.最大堆降序排序\n"
-                 "7.增加元素\n8.删除元素\n"
-                 "9.打印堆\n10.退出程序\n");
+                 "5.打印堆\n6.退出程序\n");
          printf("请选择:\n");
          scanf("%d", &option_num);
 
@@ -57,28 +55,22 @@ int main(void)
          {
              case 1:
                  create_min_heap(heap_array, num);
+                 print_heap(heap_array, num);
                  break;
              case 2:
                  create_max_heap(heap_array, num);
+                 print_heap(heap_array, num);
                  break;
              case 3:
                  min_heap_up_sort(heap_array, num);
                  break;
              case 4:
+                 max_heap_up_sort(heap_array, num);
                  break;
              case 5:
-                 break;
-             case 6:
-                 max_heap_down_sort(heap_array, num);
-                 break;
-             case 7:
-                 break;
-             case 8:
-                 break;
-             case 9:
                  print_heap(heap_array, num);
                  break;
-             case 10:
+             case 6:
                  flag = 0;
                  break;
              default:

@@ -246,7 +246,7 @@ static void max_siftdown(int *heap_array, int father, int len)
 * Date       (日期): 2016/03/27
 * Others     (其他):
 \*=======================================================================*/
-int create_min_heap(int *heap_array, int len)
+void create_min_heap(int *heap_array, int len)
 {
     int     i = len/2;      //最后一个页节点的父节点.
 
@@ -255,7 +255,6 @@ int create_min_heap(int *heap_array, int len)
         siftdown(heap_array, i, len);
     }
 
-    return 1;
 }
 
 
@@ -265,7 +264,7 @@ int create_min_heap(int *heap_array, int len)
 * Date       (日期): 2016/03/27
 * Others     (其他):
 \*=======================================================================*/
-int create_max_heap(int *heap_array, int len)
+void create_max_heap(int *heap_array, int len)
 {
      int    i = 0;
 
@@ -274,7 +273,6 @@ int create_max_heap(int *heap_array, int len)
           max_siftdown(heap_array, i, len);
      }
 
-     return 1;
 }
 
 
@@ -318,9 +316,16 @@ int create_max_heap(int *heap_array, int len)
      {
         temp = heap_array[1];
         heap_array[1] = heap_array[temp_len];
+        heap_array[temp_len] = temp;
         temp_len--;
         max_siftdown(heap_array, 1, temp_len);
-        printf("%d ", temp);
+//        heap_array[]
+//        printf("%d ", temp);
+     }
+
+     for (i = 1; i < len + 1; i++)
+     {
+          printf("%d ", heap_array[i]);
      }
      printf("\n");
 
@@ -367,7 +372,7 @@ int min_heap_up_sort(int *heap_array, int len)
 * Date       (日期): 2016/03/27
 * Others     (其他):
 \*=======================================================================*/
-int max_heap_down_sort(int *heap_array, int len)
+int max_heap_up_sort(int *heap_array, int len)
 {
      int    *temp_array = NULL;
      int    i = 0;

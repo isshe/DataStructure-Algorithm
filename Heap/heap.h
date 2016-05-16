@@ -129,7 +129,7 @@ int heap_destroy(int *heap_array);
 * Change log (修改): 1.
 * Others     (其他): 1.
 \*=====================================================================*/
-int create_min_heap(int *heap_array, int len);
+void create_min_heap(int *heap_array, int len);
 
 /*=====================================================================\
 * Function   (名称): create_max_heap()
@@ -146,7 +146,7 @@ int create_min_heap(int *heap_array, int len);
 * Change log (修改): 1.
 * Others     (其他): 1.
 \*=====================================================================*/
-int create_max_heap(int *heap_array, int len);
+void create_max_heap(int *heap_array, int len);
 
 
 /*=====================================================================\
