@@ -1,7 +1,7 @@
 /*=========================================================================\
 * Copyright(C)2016 Chudai.
 *
-* File name    : TopDownMS.c
+* File name    : AllocAndInput.c
 * Version      : v1.0.0
 * Author       : 初代
 * Date         : 2016/05/15
@@ -47,20 +47,34 @@
 /*-----------------------------------------------------------*
  * 函数实现                                                  *
  *-----------------------------------------------------------*/
-
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 
-
-void top_down_merge_sort(int *a, int *b, int lo, int hi)
+int *alloc_and_input(int num)
 {
-    if(lo >= hi)
+//    int num = 0;
+    int i = 0;
+    int *array = NULL;
+
+//    printf("输入数据个数：\n");
+//    scanf("%d", &num);
+
+    array = (int *)malloc(num * sizeof(int));
+    if (array == NULL)
     {
-         return ;
+        printf("内存分配错误!\n");
+        exit(1);
     }
 
-    int mid = (lo + hi) / 2;        //
-    top_down_merge_sort(a, b, lo, mid);
-    top_down_merge_sort(a, b, mid+1, hi);
-    merge(a, b, lo, mid, hi);
+    printf("输入数据:\n");
+    for (i = 0; i < num; i++)
+    {
+         scanf("%d", &array[i]);
+    }
+
+
+    print_array(array, num);
+
+    return array;
 }

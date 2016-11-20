@@ -1,10 +1,10 @@
 /*=========================================================================\
 * Copyright(C)2016 Chudai.
 *
-* File name    : TopDownMS.c
+* File name    : Merge.c
 * Version      : v1.0.0
 * Author       : 初代
-* Date         : 2016/05/15
+* Date         : 2016/05/16
 * Description  :
 * Function list: 1.
 *                2.
@@ -48,19 +48,44 @@
  * 函数实现                                                  *
  *-----------------------------------------------------------*/
 
+
 #include <stdio.h>
 #include <stdlib.h>
 
 
-void top_down_merge_sort(int *a, int *b, int lo, int hi)
+void merge(int *a, int *b, int lo, int mid, int hi)
 {
-    if(lo >= hi)
-    {
-         return ;
-    }
+     int    i = lo;
+     int    j = mid + 1;
+     int    k = 0;
 
-    int mid = (lo + hi) / 2;        //
-    top_down_merge_sort(a, b, lo, mid);
-    top_down_merge_sort(a, b, mid+1, hi);
-    merge(a, b, lo, mid, hi);
+     //copy a[lo..hi] to b[lo..hi].
+     for (k = lo; k <= hi; k++)
+     {
+         b[k] = a[k];
+     }
+
+     for (k = lo; k <= hi; k++)
+     {
+          if (i > mid)          //到达边缘
+          {
+              a[k] = b[j];
+              j++;
+          }
+          else if (j > hi)    //到达边缘
+          {
+              a[k] = b[i];
+              i++;
+          }
+          else if (b[i] > b[j])
+          {
+               a[k] = b[j];
+               j++;
+          }
+          else          //b[i] < b[j]
+          {
+               a[k] = b[i];
+               i++;
+          }
+     }
 }

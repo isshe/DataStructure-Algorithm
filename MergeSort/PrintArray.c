@@ -1,10 +1,10 @@
 /*=========================================================================\
 * Copyright(C)2016 Chudai.
 *
-* File name    : TopDownMS.c
+* File name    : PrintArray.c
 * Version      : v1.0.0
 * Author       : 初代
-* Date         : 2016/05/15
+* Date         : 2016/05/16
 * Description  :
 * Function list: 1.
 *                2.
@@ -49,18 +49,14 @@
  *-----------------------------------------------------------*/
 
 #include <stdio.h>
-#include <stdlib.h>
 
-
-void top_down_merge_sort(int *a, int *b, int lo, int hi)
+void print_array(int *array, int num)
 {
-    if(lo >= hi)
-    {
-         return ;
-    }
+     int i = 0;
 
-    int mid = (lo + hi) / 2;        //
-    top_down_merge_sort(a, b, lo, mid);
-    top_down_merge_sort(a, b, mid+1, hi);
-    merge(a, b, lo, mid, hi);
+     for (i = 0; i < num; i++)
+     {
+         printf("%d ", array[i]);
+     }
+     printf("\n");
 }

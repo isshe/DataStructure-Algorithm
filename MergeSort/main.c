@@ -1,7 +1,7 @@
 /*=========================================================================\
 * Copyright(C)2016 Chudai.
 *
-* File name    : TopDownMS.c
+* File name    : main.c
 * Version      : v1.0.0
 * Author       : 初代
 * Date         : 2016/05/15
@@ -49,18 +49,34 @@
  *-----------------------------------------------------------*/
 
 #include <stdio.h>
+#include <malloc.h>
 #include <stdlib.h>
 
-
-void top_down_merge_sort(int *a, int *b, int lo, int hi)
+int main(void)
 {
-    if(lo >= hi)
+    int *array = NULL;
+    int *arrayb = NULL;
+    int num = 0;
+
+    printf("输入数据个数：\n");
+    scanf("%d", &num);
+
+    array = alloc_and_input(num);
+    arrayb = (int *)malloc(num * sizeof(int));
+    if (arrayb == NULL)
     {
-         return ;
+        printf("申请辅助内存错误!\n");
+        exit(1);
     }
 
-    int mid = (lo + hi) / 2;        //
-    top_down_merge_sort(a, b, lo, mid);
-    top_down_merge_sort(a, b, mid+1, hi);
-    merge(a, b, lo, mid, hi);
+//    quick_sort(array, 0, num -1);
+//    quick_sort3way(array, 0, num - 1);
+//    top_down_merge_sort(array, arrayb, 0, num - 1);
+    bottom_up_merge_sort(array, arrayb, num);
+    print_array(array, num);
+
+    free(array);
+
+    return 0;
+
 }
